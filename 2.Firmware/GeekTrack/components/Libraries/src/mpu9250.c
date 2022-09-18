@@ -107,9 +107,9 @@ void MPU9250_GetEulerAngles(float* yaw,float* roll, float* pitch)
     mpu9250.yaw   = atan2(q2*q1 + q0*q3,0.5f - q2*q2 - q3*q3); // * (180.0f /3.141592f);
     mpu9250.roll  = atan2(q2*q3 + q0*q1,0.5f - q2*q2 - q1*q1); //* (180.0f /3.141592f);
 
-	mpu9250.yaw   = (180.0f / 3.141592f);
-	mpu9250.roll  = (180.0f / 3.141592f);
-	mpu9250.pitch = (180.0f / 3.141592f);
+	mpu9250.yaw   *= (180.0f / 3.141592f);
+	mpu9250.roll  *= (180.0f / 3.141592f);
+	mpu9250.pitch *= (180.0f / 3.141592f);
 
 	*yaw   = mpu9250.yaw;   
 	*roll  = mpu9250.roll;  

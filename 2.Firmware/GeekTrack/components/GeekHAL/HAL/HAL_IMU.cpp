@@ -41,7 +41,14 @@ void IMU_Update()
 
     imu.steps = Pedometer_Update(imu.ax, imu.ay, imu.az);
 
-    printf("%.2f, %.2f, %.2f\n", imu.acc[0], imu.acc[1], imu.acc[2]);
+    /* Sensor Debug. */
+    float yaw = 0.0f, pitch = 0.0f, roll = 0.0f;
+    MPU9250_GetEulerAngles(&yaw, &roll, &pitch);
+
+    printf("%.2f, %.2f, %.2f\n", yaw, roll, pitch);
+    //printf("%.2f, %.2f, %.2f\n", imu.acc[0], imu.acc[1], imu.acc[2]);
+    //printf("%.2f, %.2f, %.2f\n", imu.gyr[0], imu.gyr[1], imu.gyr[2]);
+
     if (CommitFunc)
     {
         CommitFunc(&imu, UserData);
