@@ -2,9 +2,9 @@
 
 **功能描述：一个无线姿态追踪模块，可以追踪姿态。可以用于全身动作捕捉也可以用于人体步态追踪, GeekTrack实际是GeekMotion阉割屏幕减少尺寸的版本，目的是为了方便固定在身体上，用于姿态追踪**
 
-GeekMotion: https://github.com/Logzhan/GeekMoton
+**GeekMotion:** https://github.com/Logzhan/GeekMoton
 
-状态：PCB已经打样，待贴片验证中。
+状态：PCB已经打样测试完成，设备WIFI正常，信号对比PCB天线弱一些。IMU、气压计读取数据正常、SD卡识别正常。
 
 - WIFI通信功能
 - IMU、MAG传感器。
@@ -15,6 +15,8 @@ GeekMotion: https://github.com/Logzhan/GeekMoton
 - SD卡存储
 
 <img src=".\6.Image\Board.jpg" alt=".\6.I" style="zoom: 50%;" />
+
+<img src=".\6.Image\Board_Real.jpg" alt=".\6.I" style="zoom: 50%;" />
 
 命令行支持(移植letter shell)：
 
