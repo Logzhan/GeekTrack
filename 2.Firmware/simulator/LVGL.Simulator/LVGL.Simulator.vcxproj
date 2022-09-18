@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3CA6E070-4AC1-475E-BB17-CF29AE4806DF}</ProjectGuid>
+    <RootNamespace>LVGL</RootNamespace>
+    <MileProjectType>ConsoleApplication</MileProjectType>
+    <MileProjectManifestFile>LVGL.Simulator.manifest</MileProjectManifestFile>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <EnableASAN>false</EnableASAN>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <EnableASAN>false</EnableASAN>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="Mile.Project\Mile.Project.Cpp.props" />
+  <Import Project="Mile.Project\Mile.Project.Cpp.VC-LTL.props" />
+  <PropertyGroup>
+    <IncludePath>$(MSBuildThisFileDirectory);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization Condition="'$(Configuration)'=='Release'">MinSpace</Optimization>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)..\..\components\LVGL_CORE\;$(ProjectDir)..\..\components\GeekHAL\;$(ProjectDir)..\..\components\GeekOS\;$(ProjectDir)..\..\USER\App;$(ProjectDir)..\..\USER\App\Utils\ArduinoJson\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\..\components\LVGL_CORE\;$(ProjectDir)..\..\components\GeekHAL\;$(ProjectDir)..\..\components\GeekOS\;$(ProjectDir)..\..\USER\App;$(ProjectDir)..\..\USER\App\Utils\ArduinoJson\src</AdditionalIncludeDirectories>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</MultiProcessorCompilation>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\components\GeekHAL\HAL\HAL.h" />
+    <ClInclude Include="..\..\components\GeekHAL\HAL\MillisTaskManager\MillisTaskManager.h" />
+    <ClInclude Include="..\..\components\GeekOS\Common\DataProc\DataProc.h" />
+    <ClInclude Include="..\..\components\GeekOS\Common\DataProc\DataProc_Def.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\AppFactory.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\Launcher\Launcher.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\Launcher\LauncherModel.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\Launcher\LauncherView.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\Page.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\StartUp\StartUp.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\StartUp\StartUpModel.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\StartUp\StartUpView.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\SystemInfos\SystemInfos.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\SystemInfos\SystemInfosModel.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\SystemInfos\SystemInfosView.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\_Template\Engine3DType.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\_Template\MeshCube.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\_Template\Template.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\_Template\TemplateModel.h" />
+    <ClInclude Include="..\..\components\GeekOS\Pages\_Template\TemplateView.h" />
+    <ClInclude Include="..\..\components\GeekOS\Resource\ResourcePool.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\DataCenter\Account.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\DataCenter\DataCenter.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\DataCenter\DataCenterLog.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\DataCenter\PingPongBuffer\PingPongBuffer.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\GeekOS.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\HAL\HAL.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\HAL\HAL_Def.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\lv_ext\lv_anim_label.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\lv_ext\lv_anim_timeline_wrapper.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\lv_ext\lv_obj_ext_func.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\PageManager\PageBase.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\PageManager\PageFactory.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\PageManager\PageManager.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\PageManager\PM_Log.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\PageManager\ResourceManager.h" />
+    <ClInclude Include="..\..\components\GeekOS\System\Version.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_disp.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_event.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_group.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_indev.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_indev_scroll.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj_class.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj_draw.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj_pos.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj_scroll.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj_style.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj_style_gen.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_obj_tree.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_refr.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\core\lv_theme.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_arc.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_blend.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_img.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_label.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_line.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_mask.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_rect.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_draw_triangle.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_img_buf.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_img_cache.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\lv_img_decoder.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\layouts\flex\lv_flex.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\layouts\grid\lv_grid.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\layouts\lv_layouts.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\lv_extra.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\others\lv_others.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\others\monkey\lv_monkey.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\others\snapshot\lv_snapshot.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\themes\basic\lv_theme_basic.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\themes\default\lv_theme_default.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\themes\lv_themes.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\themes\mono\lv_theme_mono.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\calendar\lv_calendar.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\calendar\lv_calendar_header_arrow.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\calendar\lv_calendar_header_dropdown.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\chart\lv_chart.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\colorwheel\lv_colorwheel.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\imgbtn\lv_imgbtn.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\keyboard\lv_keyboard.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\led\lv_led.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\list\lv_list.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\lv_widgets.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\meter\lv_meter.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\msgbox\lv_msgbox.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\span\lv_span.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\spinbox\lv_spinbox.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\spinner\lv_spinner.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\tabview\lv_tabview.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\tileview\lv_tileview.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\extra\widgets\win\lv_win.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\font\lv_font.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\font\lv_font_fmt_txt.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\font\lv_font_loader.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\font\lv_symbol_def.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_nxp_pxp.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_nxp_pxp_osa.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_nxp_vglite.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_sdl.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_stm32_dma2d.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\hal\lv_hal.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\hal\lv_hal_disp.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\hal\lv_hal_indev.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\hal\lv_hal_tick.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\lvgl.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\lv_api_map.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\lv_conf_internal.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\lv_conf_kconfig.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_anim.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_anim_timeline.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_area.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_assert.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_async.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_bidi.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_color.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_fs.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_gc.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_ll.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_log.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_math.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_mem.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_printf.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_style.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_style_gen.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_templ.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_timer.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_tlsf.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_txt.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_txt_ap.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_types.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\misc\lv_utils.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_arc.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_bar.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_btn.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_btnmatrix.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_canvas.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_checkbox.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_dropdown.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_img.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_label.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_line.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_objx_templ.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_roller.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_slider.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_switch.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_table.h" />
+    <ClInclude Include="..\..\components\LVGL_CORE\src\widgets\lv_textarea.h" />
+    <ClInclude Include="Win32HAL\Event\ButtonEvent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\components\GeekHAL\HAL\HAL.cpp" />
+    <ClCompile Include="..\..\components\GeekHAL\HAL\HAL_MAG.cpp" />
+    <ClCompile Include="..\..\components\GeekHAL\HAL\MillisTaskManager\MillisTaskManager.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Common\DataProc\DataProc.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Common\DataProc\DP_Clock.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Common\DataProc\DP_IMU.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Common\DataProc\DP_MAG.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\AppFactory.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\Launcher\Launcher.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\Launcher\LauncherModel.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\Launcher\LauncherView.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\StartUp\StartUp.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\StartUp\StartUpModel.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\StartUp\StartUpView.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\SystemInfos\SystemInfos.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\SystemInfos\SystemInfosModel.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\SystemInfos\SystemInfosView.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\_Template\MeshCube.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\_Template\Template.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\_Template\TemplateModel.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Pages\_Template\TemplateView.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Font\font_agencyb_36.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Font\font_bahnschrift_13.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Font\font_bahnschrift_17.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Font\font_bahnschrift_32.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Font\font_bahnschrift_65.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_alarm.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_battery.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_battery_info.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_bicycle.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_compass.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_gps_arrow_dark.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_gps_arrow_default.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_gps_arrow_light.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_gps_pin.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_gyroscope.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_locate.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_map_location.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_menu.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_origin_point.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_pause.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_run_ico_img.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_satellite.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_sd_card.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_start.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_stop.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_storage.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_system_info.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_time_info.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\Image\img_src_trip.c" />
+    <ClCompile Include="..\..\components\GeekOS\Resource\ResourcePool.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\DataCenter\Account.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\DataCenter\DataCenter.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\DataCenter\PingPongBuffer\PingPongBuffer.c" />
+    <ClCompile Include="..\..\components\GeekOS\System\GeekOS.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\lv_ext\lv_anim_label.c" />
+    <ClCompile Include="..\..\components\GeekOS\System\lv_ext\lv_anim_timeline_wrapper.c" />
+    <ClCompile Include="..\..\components\GeekOS\System\lv_ext\lv_obj_ext_func.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\PageManager\PageBase.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\PageManager\PM_Anim.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\PageManager\PM_Base.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\PageManager\PM_Drag.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\PageManager\PM_Router.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\PageManager\PM_State.cpp" />
+    <ClCompile Include="..\..\components\GeekOS\System\PageManager\ResourceManager.cpp" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_disp.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_event.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_group.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_indev.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_indev_scroll.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj_class.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj_draw.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj_pos.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj_scroll.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj_style.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj_style_gen.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_obj_tree.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_refr.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\core\lv_theme.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw_arc.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw_blend.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw_img.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw_label.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw_line.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw_rect.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_draw_triangle.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_img_buf.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_img_cache.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\lv_img_decoder.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_arc.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_blend.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_img.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_letter.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_line.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_mask.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_polygon.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw_rect.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\layouts\flex\lv_flex.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\layouts\grid\lv_grid.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\lv_extra.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\others\monkey\lv_monkey.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\others\snapshot\lv_snapshot.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\themes\basic\lv_theme_basic.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\themes\default\lv_theme_default.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\themes\mono\lv_theme_mono.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\calendar\lv_calendar.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\calendar\lv_calendar_header_arrow.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\calendar\lv_calendar_header_dropdown.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\chart\lv_chart.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\colorwheel\lv_colorwheel.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\imgbtn\lv_imgbtn.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\keyboard\lv_keyboard.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\led\lv_led.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\list\lv_list.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\meter\lv_meter.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\msgbox\lv_msgbox.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\span\lv_span.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\spinbox\lv_spinbox.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\spinner\lv_spinner.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\tabview\lv_tabview.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\tileview\lv_tileview.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\extra\widgets\win\lv_win.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_dejavu_16_persian_hebrew.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_fmt_txt.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_loader.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_10.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_12.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_12_subpx.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_14.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_16.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_18.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_20.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_22.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_24.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_26.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_28.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_28_compressed.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_30.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_32.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_34.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_36.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_38.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_40.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_42.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_44.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_46.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_48.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_montserrat_8.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_simsun_16_cjk.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_unscii_16.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\font\lv_font_unscii_8.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_nxp_pxp.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_nxp_pxp_osa.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_nxp_vglite.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_sdl.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu_stm32_dma2d.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\hal\lv_hal_disp.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\hal\lv_hal_indev.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\hal\lv_hal_tick.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_anim.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_anim_timeline.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_area.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_async.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_bidi.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_color.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_fs.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_gc.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_ll.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_log.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_math.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_mem.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_printf.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_style.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_style_gen.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_templ.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_timer.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_tlsf.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_txt.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_txt_ap.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\misc\lv_utils.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_arc.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_bar.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_btn.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_btnmatrix.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_canvas.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_checkbox.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_dropdown.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_img.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_label.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_line.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_objx_templ.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_roller.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_slider.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_switch.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_table.c" />
+    <ClCompile Include="..\..\components\LVGL_CORE\src\widgets\lv_textarea.c" />
+    <ClCompile Include="lv_fs_if\lv_fs_if.c" />
+    <ClCompile Include="lv_fs_if\lv_fs_pc.c" />
+    <ClCompile Include="lv_fs_if\lv_fs_posix.c" />
+    <ClCompile Include="Win32HAL\Event\ButtonEvent.cpp" />
+    <ClCompile Include="Win32HAL\HAL_Button.cpp" />
+    <ClCompile Include="Win32HAL\HAL_IMU.cpp" />
+    <ClCompile Include="Win32HAL\HAL_Power.cpp" />
+    <ClCompile Include="Win32HAL\HAL_SD_CARD.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\components\GeekOS\Common\DataProc\DP_LIST.inc" />
+    <None Include="..\..\components\LVGL_CORE\src\core\lv_core.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\draw\lv_draw.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\draw\sw\lv_draw_sw.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\extra\extra.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\font\lv_font.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\gpu\lv_gpu.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\hal\lv_hal.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\misc\lv_misc.mk" />
+    <None Include="..\..\components\LVGL_CORE\src\widgets\lv_widgets.mk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lv_drivers\win32drv\win32drv.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lv_drivers\win32drv\win32drv.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lv_drv_conf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="LVGL.Simulator.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lv_fs_if\lv_fs_if.h" />
+    <ClInclude Include="Mile.Project.Properties.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LVGL.Simulator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LVGL.Simulator.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="LVGL.ico" />
+  </ItemGroup>
+  <Import Project="Mile.Project\Mile.Project.Cpp.targets" />
+</Project>
