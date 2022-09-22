@@ -1,0 +1,14 @@
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.exe
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.deps.json
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.runtimeconfig.json
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.dll
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.pdb
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.dll
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.pdb
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.genruntimeconfig.cache
+C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.csproj.AssemblyReference.cache
