@@ -29,13 +29,45 @@
 #include "esp_freertos_hooks.h"
 #include "freertos/semphr.h"
 
-#include "lvgl.h"
-#include "lvgl_helpers.h"
 #include "System/GeekOS.h"
 #include "WIFINetwork.h"
+#include "mpu9250.h"
 
-#define LV_TICK_PERIOD_MS 1
-static void lv_tick_task(void *arg);
+#define UDP_PORT            9000
+#define TAG                 "main"
+
+static void UdpSendData(void *pvParameters)
+{
+    struct sockaddr_in saddr = { 0 };
+
+    int sock = -1; 
+    int err = 0;
+    /* Init the sock. */
+    sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_IP);
+    if (sock < 0) {
+        ESP_LOGE(TAG, "Failed to create socket. Error %d", errno);
+    }
+
+    saddr.sin_family = PF_INET;
+    saddr.sin_port = htons(UDP_PORT);
+    saddr.sin_addr.s_addr = htonl(IPADDR_BROADCAST);
+    
+	char line[128] = " ";
+    /* Task Send Sensor Data. */
+    while (1) {
+        float yaw, roll, pitch;
+        MPU9250_GetEulerAngles(&yaw, &roll, &pitch);
+		sprintf(line, "%f %f %f\n", yaw, roll, pitch);
+        err = sendto(sock, line, 256, 0, (struct sockaddr *)&saddr, 
+                sizeof(struct sockaddr_in));
+        if (err < 0) {
+            ESP_LOGE(TAG, "IPV4 sendto failed. errno: %d", errno);
+        }   
+        vTaskDelay(30 / portTICK_PERIOD_MS);
+    }
+    close(sock);
+}
+
 /**-----------------------------------------------------------------------
 * Function    : app_main
 * Description : GEEKIMU 程序主入口
@@ -49,10 +81,11 @@ void app_main(void)
 
     // vTaskDelay(1500 / portTICK_PERIOD_MS);
     /* Config serial zero for shell. */
-	// userShellInit(0);
-    // xTaskCreate(shellTask, "shell", 4096, GetEsp32Shell(), 12, NULL);
+	userShellInit(0);
+    xTaskCreate(shellTask, "shell", 4096, GetEsp32Shell(), 12, NULL);
 
-    // LIB_WIFIConnect();
+    LIB_WIFIConnect();
+    xTaskCreate(UdpSendData, "UdpSend", 4096, NULL, 5, NULL);
 
     uint32_t tick = 0;
     /* Forever loop. */

@@ -18,6 +18,9 @@ static void Button_EventHandler(ButtonEvent* btn, int event)
     if(event == ButtonEvent::EVENT_ButtonClick){
         if(btn == &btPOWER){
             Button_Info.btnPower = 1;
+            gpio_pad_select_gpio(21);
+            gpio_set_direction((gpio_num_t)21, GPIO_MODE_OUTPUT);
+            gpio_set_level((gpio_num_t)21, 0);
             printf("Button PWR short click.\n");
         }
     }
