@@ -41,7 +41,11 @@
         "*.tcc": "cpp",
         "wifinetwork.h": "c",
         "param.h": "c",
-        "event_groups.h": "c"
+        "event_groups.h": "c",
+        "*.inc": "cpp",
+        "*.ipp": "cpp",
+        "istream": "cpp",
+        "typeinfo": "cpp"
     },
     "idf.portWin": "COM8",
     "idf.openOcdConfigs": [

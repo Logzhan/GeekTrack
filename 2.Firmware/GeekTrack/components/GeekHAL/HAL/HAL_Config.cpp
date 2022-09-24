@@ -22,21 +22,24 @@ void Config_Init()
     }
     ESP_ERROR_CHECK(err);
 
-    // err = nvs_open("storage", NVS_READWRITE, &nvs_hal);
-    // if (err != ESP_OK) {
-    //     printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
-    //     Config_InitFlag = false;
-    // }
+    err = nvs_open("storage", NVS_READWRITE, &nvs_hal);
+    if (err != ESP_OK) {
+        printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
+        Config_InitFlag = false;
+    }
 
-    // Config_InitFlag = true;
-    // size_t length = 64;
-    // /* If load wifi name fail. config the default name. and password */
-    // if(Config_GetString("WIFI_NAME", StringBuff, &length) == 0){
-    //     Config_SetString("WIFI_NAME", "WIFI_DAFAULT_NAME");
-    // }
-    // if(Config_GetString("WIFI_NAME", StringBuff, &length) == 0){
-    //     Config_SetString("WIFI_PWD", "WIFI_DAFAULT_PWD");
-    // }
+    Config_InitFlag = true;
+    size_t length = 64;
+    /* If load wifi name fail. config the default name. and password */
+    if(Config_GetString("WIFI_NAME", StringBuff, &length) == 0){
+        Config_SetString("WIFI_NAME", "WIFI_DAFAULT_NAME");
+    }
+    if(Config_GetString("WIFI_PWD", StringBuff, &length) == 0){
+        Config_SetString("WIFI_PWD", "WIFI_DAFAULT_PWD");
+    }
+    if(Config_GetString("DEV_IDX", StringBuff, &length) == 0){
+        Config_SetString("DEV_IDX", "0");
+    }
 }
 
 

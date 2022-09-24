@@ -36,6 +36,11 @@ int PrintWifiConfig(){
     if(ret){
         printf("Config WIFI Name = %s\n", StringBuff);
     }
+    ret = Config_GetString("WIFI_PWD", StringBuff, &length);
+    if(ret){
+        printf("Config WIFI Password = %s\n", StringBuff);
+    }
+
     return 0;
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|
@@ -52,3 +57,23 @@ int SetWifiConfigName(char* SSID, char* PWD){
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|
                  SHELL_CMD_PARAM_NUM(2), set_wifi_cfg, SetWifiConfigName, set wifi ssid and password);
 
+int SetDevIndx(char* idx){
+    Config_SetString("DEV_IDX", idx);
+    return 0;
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|
+                 SHELL_CMD_PARAM_NUM(1), set_dev_idx, SetDevIndx, set device idx type);
+
+int PrintDevIndex(){
+    char StringBuff[64] = {0};
+    size_t length = 64;
+    uint8_t ret = Config_GetString("DEV_IDX", StringBuff, &length);
+    if(ret){
+        printf("Config device idx = %s \n", StringBuff);
+    }else{
+        printf("No config dev idx\n");
+    }
+    return 0;
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|
+                 SHELL_CMD_PARAM_NUM(0), print_dev_idx, PrintDevIndex, print GeekTrack device type);

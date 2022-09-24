@@ -25,6 +25,12 @@ void Power_Init(){
     adc1_config_width(width);
     adc1_config_channel_atten(channel, atten);
     esp_adc_cal_characterize(unit, atten, width, DEFAULT_VREF, &adc_chars);
+
+    /* Enable Power Pin. */
+    gpio_pad_select_gpio(CONFIG_POWER_EN_PIN);
+    gpio_set_direction((gpio_num_t)CONFIG_POWER_EN_PIN, GPIO_MODE_OUTPUT);
+    gpio_set_level((gpio_num_t)CONFIG_POWER_EN_PIN, 1);
+
 }
 
 void Power_GetInfo(Power_Info_t* info)

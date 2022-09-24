@@ -72,7 +72,7 @@ uint8_t Library_WIFI_Init(char* ssid, char* password){
 }
 
 
-uint8_t LIB_WIFIConnect(){
+uint8_t WIFI_Connect(){
 
     ESP_LOGI(TAG, "LIB_WIFIConnect");
 

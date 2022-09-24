@@ -139,6 +139,10 @@ void Config_SetInt();
 void Config_GetInt();
 uint8_t Config_SetString(const char* key, const char* str);
 
+/* Network. */
+void Network_Init();
+void Network_UdpSendData();
+
 #ifdef __cplusplus
 }
 #endif

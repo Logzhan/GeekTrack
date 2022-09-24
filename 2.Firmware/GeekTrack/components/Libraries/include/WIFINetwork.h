@@ -10,7 +10,7 @@ extern "C" {
 
 uint8_t Library_WIFI_Init(char* ssid, char* password);
 
-uint8_t LIB_WIFIConnect(void);
+uint8_t WIFI_Connect(void);
 
 #ifdef __cplusplus
 } /* extern "C" */

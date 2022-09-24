@@ -35,7 +35,6 @@
 #define VERSION_NUM_TO_STR(n)   _VERSION_NUM_TO_STR_(n)
 
 /* LVGL Version */
-#include "lvgl.h"
 
 
 #define VERSION_LVGL            "v"\

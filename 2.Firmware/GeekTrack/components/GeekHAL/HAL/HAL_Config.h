@@ -80,7 +80,7 @@
 #define CONFIG_BUTTON_KEY_PWR_PIN    19
 
 /* Power */
-#define CONFIG_POWER_EN_PIN         PA12
+#define CONFIG_POWER_EN_PIN         21
 #define CONFIG_POWER_WAIT_TIME      1000
 #define CONFIG_POWER_SHUTDOWM_DELAY 5000
 
