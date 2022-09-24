@@ -14,13 +14,13 @@
 - 电梯识别(待实现)
 - SD卡存储
 
-<img src=".\6.Image\Board.jpg" alt=".\6.I" style="zoom: 50%;" />
+<img src="./6.Image/Board.jpg" alt=".\6.I" style="zoom: 50%;" />
 
-<img src=".\6.Image\Board_Real.jpg" alt=".\6.I" style="zoom: 50%;" />
+<img src="./6.Image/Board_Real.jpg" alt=".\6.I" style="zoom: 50%;" />
 
 命令行支持(移植letter shell)：
 
-<img src=".\6.Image\GeekMotion-Shell.png" alt=".\6.I" style="zoom: 50%;" />
+<img src="./6.Image/GeekMotion-Shell.png" alt=".\6.I" style="zoom: 50%;" />
 
 支持：
 
