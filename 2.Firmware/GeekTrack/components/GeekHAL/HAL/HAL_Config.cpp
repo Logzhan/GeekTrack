@@ -29,28 +29,27 @@ void Config_Init()
     }
 
     Config_InitFlag = true;
-    size_t length = 64;
     /* If load wifi name fail. config the default name. and password */
-    if(Config_GetString("WIFI_NAME", StringBuff, &length) == 0){
+    if(Config_GetString("WIFI_NAME", StringBuff, 64) == 0){
         Config_SetString("WIFI_NAME", "WIFI_DAFAULT_NAME");
     }
-    if(Config_GetString("WIFI_PWD", StringBuff, &length) == 0){
+    if(Config_GetString("WIFI_PWD", StringBuff, 64) == 0){
         Config_SetString("WIFI_PWD", "WIFI_DAFAULT_PWD");
     }
-    if(Config_GetString("DEV_IDX", StringBuff, &length) == 0){
+    if(Config_GetString("DEV_IDX", StringBuff, 64) == 0){
         Config_SetString("DEV_IDX", "0");
     }
 }
 
 
-uint8_t Config_GetString(const char* key, char* str, size_t* length)
+uint8_t Config_GetString(const char* key, char* str, size_t len)
 {
     if(!Config_InitFlag){
         return 0;
     }
 
-    esp_err_t err =  nvs_get_str(nvs_hal, key, str, length);
-
+    size_t length = len;
+    esp_err_t err =  nvs_get_str(nvs_hal, key, str, &length);
     if(err != ESP_OK)
     {
         printf("Cofig_GetStrig:: nvs_get_str error\n");

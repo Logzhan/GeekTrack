@@ -32,11 +32,11 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|
 int PrintWifiConfig(){
     char StringBuff[64] = {0};
     size_t length = 64;
-    uint8_t ret = Config_GetString("WIFI_NAME", StringBuff, &length);
+    uint8_t ret = Config_GetString("WIFI_NAME", StringBuff, 64);
     if(ret){
         printf("Config WIFI Name = %s\n", StringBuff);
     }
-    ret = Config_GetString("WIFI_PWD", StringBuff, &length);
+    ret = Config_GetString("WIFI_PWD", StringBuff, 64);
     if(ret){
         printf("Config WIFI Password = %s\n", StringBuff);
     }
@@ -66,8 +66,7 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|
 
 int PrintDevIndex(){
     char StringBuff[64] = {0};
-    size_t length = 64;
-    uint8_t ret = Config_GetString("DEV_IDX", StringBuff, &length);
+    uint8_t ret = Config_GetString("DEV_IDX", StringBuff, 64);
     if(ret){
         printf("Config device idx = %s \n", StringBuff);
     }else{

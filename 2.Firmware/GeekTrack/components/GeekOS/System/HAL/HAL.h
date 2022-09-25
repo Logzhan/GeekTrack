@@ -134,7 +134,7 @@ void Memory_DumpInfo();
 
 /* Config */
 void Config_Init();
-uint8_t Config_GetString(const char* key, char* str, size_t* length);
+uint8_t Config_GetString(const char* key, char* str, size_t len);
 void Config_SetInt();
 void Config_GetInt();
 uint8_t Config_SetString(const char* key, const char* str);

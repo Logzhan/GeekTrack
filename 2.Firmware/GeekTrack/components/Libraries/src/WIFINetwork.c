@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 #include "esp_wifi.h"
 #include "WIFINetwork.h"
 /* ESP32 Library support. */
@@ -9,14 +10,11 @@
 #include "freertos/event_groups.h"
 
 
-
 /* The event group allows multiple bits for each event, but we only care about two events:
  * - we are connected to the AP with an IP
  * - we failed to connect after the maximum amount of retries */
 
 #define CFG_MAXIMUM_RETRY   1000                  /* 配置最大重新连接次数 */
-#define CFG_WIFI_SSID       "logzhan"             // 配置默认连接的WIFI的SSID
-#define CFG_WIFI_PASS       "19931203"            // 配置默认连接的WIFI的密码
 #define WIFI_CONNECTED_BIT  BIT0
 #define WIFI_FAIL_BIT       BIT1
 
@@ -26,8 +24,6 @@ static int                  s_retry_num = 0;
 
 wifi_config_t wifi_config = {
     .sta = {
-        .ssid = CFG_WIFI_SSID,
-        .password = CFG_WIFI_PASS,
         .threshold.authmode = WIFI_AUTH_WPA2_PSK,
         .pmf_cfg = {
             .capable = true,
@@ -45,11 +41,11 @@ static void event_handler(void* arg, esp_event_base_t event_base,
         if (s_retry_num < CFG_MAXIMUM_RETRY) {
             esp_wifi_connect();
             s_retry_num++;
-            printf("retry to connect to the AP\r\n");
+            //printf("retry to connect to the AP\r\n");
         } else {
             xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
         }
-        printf("connect to the AP fail\r\n");
+        //printf("connect to the AP fail\r\n");
     } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
         ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
         ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
@@ -58,21 +54,7 @@ static void event_handler(void* arg, esp_event_base_t event_base,
     }
 }
 
-/**
- * @brief  Initializing the esp32 wifi network by gaving wifi ssid and
- *         password.
- * @param  ssid     : Wifi name which you want to connect.
- * @param  password : The wifi's password which you want to connect.
- * @return
- * @date   2022-09-04
- * @author zhanli 
- */
-uint8_t Library_WIFI_Init(char* ssid, char* password){
-    return 0;
-}
-
-
-uint8_t WIFI_Connect(){
+uint8_t WIFI_Connect(char* ssid, char* password){
 
     ESP_LOGI(TAG, "LIB_WIFIConnect");
 
@@ -105,6 +87,10 @@ uint8_t WIFI_Connect(){
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     /* Config esp32 ssid password and authmode. */
     ESP_LOGI(TAG, "esp_wifi_set_config");
+
+    strcpy((char*)(wifi_config.sta.ssid), ssid);
+    strcpy((char*)(wifi_config.sta.password), password);
+
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     /* Start run the esp32 wifi. */
     ESP_LOGI(TAG, "esp_wifi_start");
@@ -125,12 +111,10 @@ uint8_t WIFI_Connect(){
     */
     if (bits & WIFI_CONNECTED_BIT) {
         ESP_LOGI(TAG, "connected to ap SSID:%s password:%s",
-                 CFG_WIFI_SSID, CFG_WIFI_PASS);
-        // xTaskCreate(create_multicast_ipv4_socket, "udp_client", 4096, NULL, 5, NULL);
-        // xTaskCreate(udp_send_data, "udp_send", 4096, NULL, 5, NULL);
+                 ssid, password);
     } else if (bits & WIFI_FAIL_BIT) {
         ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s",
-                 CFG_WIFI_SSID, CFG_WIFI_PASS);
+                 ssid, password);
     } else {
         ESP_LOGE(TAG, "UNEXPECTED EVENT");
     }

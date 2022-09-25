@@ -37,13 +37,9 @@ static void HAL_Sensor_Init()
 
 void HAL_Init()
 {
-    printf("Config_Init\n");
     Config_Init();
-    printf("SD_Init\n");
     SD_Init();
-    printf("Power_Init\n");
     Power_Init();
-    printf("Button_Init\n");
     Button_Init();
 
 #if CONFIG_SENSOR_ENABLE
@@ -53,7 +49,6 @@ void HAL_Init()
 #ifndef _WIN32
     ShellSupport_Init();
 #endif
-
     taskManager.Register(Power_Update, 1000);
     taskManager.Register(Button_Update, 10);
     taskManager.Register(IMU_Update, 10);
