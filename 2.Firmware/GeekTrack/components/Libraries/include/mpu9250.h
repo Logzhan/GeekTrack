@@ -185,6 +185,7 @@ void AHRSUpdate(float gx, float gy, float gz,
 
 void MPU9250_GetEulerAngles(float* yaw,float* roll, float* pitch);
 
+void MPU9250_GetQuaternion(float quat[4]);
 
 #ifdef __cplusplus
 }

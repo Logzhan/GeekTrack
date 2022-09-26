@@ -116,6 +116,14 @@ void MPU9250_GetEulerAngles(float* yaw,float* roll, float* pitch)
 	*pitch = mpu9250.pitch; 
 }
 
+void MPU9250_GetQuaternion(float quat[4]){
+	quat[0] = q0;
+	quat[1] = q1;
+	quat[2] = q2;
+	quat[3] = q3;
+}
+
+
 void AHRSUpdate(float gx, float gy, float gz, float ax, float ay, float az) 
 {	
 	float halfT = 0.5 * (10.0f / 1000.0f);

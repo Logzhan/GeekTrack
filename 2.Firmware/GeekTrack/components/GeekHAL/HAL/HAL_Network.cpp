@@ -45,8 +45,10 @@ void Network_UdpSendData()
     while (1) 
     {
         float yaw = 0.0f, roll = 0.0f, pitch = 0.0f;
+        float quat[4] = {0.0f};
         MPU9250_GetEulerAngles(&yaw, &roll, &pitch);
-		sprintf(buff, "%s %f %f %f\n",ConfigString, yaw, roll, pitch);
+        MPU9250_GetQuaternion(quat);
+		sprintf(buff, "%s %f %f %f %f\n",ConfigString, quat[0],quat[1],quat[2],quat[3]);
         err = sendto(sock, buff, 256, 0, (struct sockaddr *)&saddr, 
                 sizeof(struct sockaddr_in));
         if (err < 0) {

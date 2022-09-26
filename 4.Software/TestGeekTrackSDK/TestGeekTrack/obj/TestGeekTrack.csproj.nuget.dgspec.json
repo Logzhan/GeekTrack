@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\TestGeekTrack.csproj": {}
+    "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK\\TestGeekTrack\\TestGeekTrack.csproj": {}
   },
   "projects": {
-    "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\TestGeekTrack.csproj": {
+    "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK\\TestGeekTrack\\TestGeekTrack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\TestGeekTrack.csproj",
+        "projectUniqueName": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK\\TestGeekTrack\\TestGeekTrack.csproj",
         "projectName": "TestGeekTrack",
-        "projectPath": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\TestGeekTrack.csproj",
+        "projectPath": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK\\TestGeekTrack\\TestGeekTrack.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\obj\\",
+        "outputPath": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK\\TestGeekTrack\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

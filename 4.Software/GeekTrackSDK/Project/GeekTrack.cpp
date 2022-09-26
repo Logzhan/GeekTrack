@@ -12,11 +12,11 @@
 
 struct GeekTrackNode_t {
 	EulerAngles_t Pose;
+	Quaternion_t  Quat;
 	bool devOnline;
 	GeekTrackNode_t() {
-		Pose.x = 0.0f;
-		Pose.y = 0.0f;
-		Pose.z = 0.0f;
+		memset(&Pose, 0, sizeof(EulerAngles_t));
+		memset(&Quat, 0, sizeof(Quaternion_t));
 		devOnline = false;
 	}
 };
@@ -34,13 +34,31 @@ void GeekTrackUpdate() {
 	int i = 0;
 	while (1)
 	{
+		//printf("...\n");
 		//从广播地址接收消息，注意用来绑定的地址和接收消息的地址是不一样的
 		recvfrom(sock, buf, 256, 0, (struct sockaddr FAR*) &from, (int FAR*) & fromlength);
 		Sleep(10);
-		float yaw = 0.0f, roll = 0.0f, pitch = 0.0f;
+		float q[4] = { 0.0f };
 		int id = 0;
-		int ret = sscanf_s(buf, "%d %f %f %f\n", &id, &yaw, &roll, &pitch);
+		//printf("%s\n", buf);
+		int ret = sscanf_s(buf, "%d %f %f %f %f\n", &id, &q[0], &q[1], &q[2], &q[3]);
 		if (ret > 0 && (id >= 0 && id < MAX_SUPPORT_DEV_NUM)) {
+
+			float yaw = 0.0f, pitch = 0.0f, roll = 0.0f;
+
+			pitch = asin((-2.0 * ((double)q[3]*q[1] - (double)q[0]*q[2]))); // * (180.0f / 3.141592f);							                                            */
+			yaw   = atan2((double)q[2]*q[1] + (double)q[0]*q[3], 0.5 - (double)q[2]*q[2] - (double)q[3]*q[3]); // * (180.0f /3.141592f);
+			roll  = atan2((double)q[2]*q[3] + (double)q[0]*q[1], 0.5 - (double)q[2]*q[2] - (double)q[1]*q[1]); //* (180.0f /3.141592f);
+
+			yaw *= (180.0f / 3.141592f);
+			roll *= (180.0f / 3.141592f);
+			pitch *= (180.0f / 3.141592f);
+
+			TrackNode[id].Quat.w = q[0];
+			TrackNode[id].Quat.x = q[1];
+			TrackNode[id].Quat.y = q[2];
+			TrackNode[id].Quat.z = q[3];
+
 			TrackNode[id].Pose.x = pitch;
 			TrackNode[id].Pose.y = roll;
 			TrackNode[id].Pose.z = yaw;
@@ -55,7 +73,7 @@ void GeekTrack_Init() {
 
 	static bool optval = false;
 	//启动SOCKET库，版本为2.0
-	if (optval == false) {
+	if (optval == true) {
 		return;
 	}
 	WSAStartup(0x0202, &wsdata);
@@ -89,12 +107,20 @@ EulerAngles_t GetEulerAngles(int devId) {
 	return Pose;
 }
 
+Quaternion_t GetQuaternion(int devId) {
+	if (devId >= 0 && devId < MAX_SUPPORT_DEV_NUM) {
+		return TrackNode[devId].Quat;
+	}
+	Quaternion_t Quat = { 0.0f, 0.0f, 0.0f, 0.0f };
+	return Quat;
+}
+
 int main()
 {
 	GeekTrack_Init();
 	int devId = 0;
 	while (1) {
-		Sleep(50);
+		Sleep(30);
 		printf("%d,%f,%f,%f\n", devId,TrackNode[devId].Pose.x, TrackNode[devId].Pose.y,
 			TrackNode[devId].Pose.z);
 	}
