@@ -10,7 +10,7 @@ typedef struct {
 
 __declspec(dllexport) void GeekTrack_Init();
 
-__declspec(dllexport) EulerAngles_t GetEulerAngles();
+__declspec(dllexport) EulerAngles_t GetEulerAngles(int devId);
 }
 
 #endif

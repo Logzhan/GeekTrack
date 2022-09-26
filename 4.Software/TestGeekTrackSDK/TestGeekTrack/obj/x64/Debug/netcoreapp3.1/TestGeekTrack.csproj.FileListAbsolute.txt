@@ -12,3 +12,16 @@ C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\ne
 C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.pdb
 C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.genruntimeconfig.cache
 C:\Users\Administrator\source\repos\TestGeekTrack\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.csproj.AssemblyReference.cache
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.exe
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.deps.json
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.runtimeconfig.json
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.runtimeconfig.dev.json
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.dll
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\bin\x64\Debug\netcoreapp3.1\TestGeekTrack.pdb
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.GeneratedMSBuildEditorConfig.editorconfig
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.AssemblyInfoInputs.cache
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.AssemblyInfo.cs
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.csproj.CoreCompileInputs.cache
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.dll
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.pdb
+E:\Hardware Project\GeekTrack\4.Software\TestGeekTrackSDK_V1.0\TestGeekTrack\obj\x64\Debug\netcoreapp3.1\TestGeekTrack.genruntimeconfig.cache

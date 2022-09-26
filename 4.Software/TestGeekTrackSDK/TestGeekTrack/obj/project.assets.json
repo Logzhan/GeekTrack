@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\TestGeekTrack\\TestGeekTrack\\TestGeekTrack.csproj",
+      "projectUniqueName": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\TestGeekTrack.csproj",
       "projectName": "TestGeekTrack",
-      "projectPath": "C:\\Users\\Administrator\\source\\repos\\TestGeekTrack\\TestGeekTrack\\TestGeekTrack.csproj",
+      "projectPath": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\TestGeekTrack.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\source\\repos\\TestGeekTrack\\TestGeekTrack\\obj\\",
+      "outputPath": "E:\\Hardware Project\\GeekTrack\\4.Software\\TestGeekTrackSDK_V1.0\\TestGeekTrack\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

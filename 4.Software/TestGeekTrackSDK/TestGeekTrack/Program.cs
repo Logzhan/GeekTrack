@@ -15,13 +15,13 @@ namespace TestGeekTrack
         public extern static void GeekTrack_Init();
 
         [DllImport("GeekTrackSDK.dll", EntryPoint = "GetEulerAngles", CallingConvention = CallingConvention.Cdecl)]
-        public extern static GeekEulerAngles GetEulerAngles();
+        public extern static GeekEulerAngles GetEulerAngles(int devId);
 
         static void Main(string[] args)
         {
             GeekTrack_Init();
             while (true) {
-                GeekEulerAngles angles =  GetEulerAngles();
+                GeekEulerAngles angles = GetEulerAngles(0);
                 Thread.Sleep(100);
                 //Debug.Log("<color=#9400D3>" + + "</color>");
                 Console.WriteLine(angles.x + "," + angles.y + "," + angles.z);
