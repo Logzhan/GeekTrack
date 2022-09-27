@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

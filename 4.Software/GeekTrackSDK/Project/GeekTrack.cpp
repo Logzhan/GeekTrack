@@ -46,13 +46,25 @@ void GeekTrackUpdate() {
 
 			float yaw = 0.0f, pitch = 0.0f, roll = 0.0f;
 
-			pitch = asin((-2.0 * ((double)q[3]*q[1] - (double)q[0]*q[2]))); // * (180.0f / 3.141592f);							                                            */
-			yaw   = atan2((double)q[2]*q[1] + (double)q[0]*q[3], 0.5 - (double)q[2]*q[2] - (double)q[3]*q[3]); // * (180.0f /3.141592f);
-			roll  = atan2((double)q[2]*q[3] + (double)q[0]*q[1], 0.5 - (double)q[2]*q[2] - (double)q[1]*q[1]); //* (180.0f /3.141592f);
+			//pitch = asin((-2.0 * ((double)q[3]*q[1] - (double)q[0]*q[2])));                                           
+			//yaw   = atan2((double)q[2]*q[1] + (double)q[0]*q[3], 0.5 - (double)q[2]*q[2] - (double)q[3]*q[3]); 
+			//roll  = atan2((double)q[2]*q[3] + (double)q[0]*q[1], 0.5 - (double)q[2]*q[2] - (double)q[1]*q[1]); 
 
-			yaw *= (180.0f / 3.141592f);
-			roll *= (180.0f / 3.141592f);
-			pitch *= (180.0f / 3.141592f);
+
+			float w, x, y, z;
+			w = q[0]; x = q[1]; y = q[2]; z = q[3];
+			double PI = 3.1415926;
+
+			pitch = asin(-2.0f * (z * x - w * y)) * (180.0f / PI);
+			yaw = atan2(y * x + w * z, 0.5f - y * y - z * z) * (180.0f / PI);
+			roll = atan2(y * z + w * x, 0.5f - y * y - x * x) * (180.0f / PI);
+
+
+			//yaw *= (180.0f / 3.141592f);
+			//roll *= (180.0f / 3.141592f);
+			//pitch *= (180.0f / 3.141592f);
+
+			printf("yaw = %f, roll = %f, pitch = %f\n", yaw, roll, pitch);
 
 			TrackNode[id].Quat.w = q[0];
 			TrackNode[id].Quat.x = q[1];
@@ -121,8 +133,8 @@ int main()
 	int devId = 0;
 	while (1) {
 		Sleep(30);
-		printf("%d,%f,%f,%f\n", devId,TrackNode[devId].Pose.x, TrackNode[devId].Pose.y,
-			TrackNode[devId].Pose.z);
+		//printf("%d,%f,%f,%f\n", devId,TrackNode[devId].Pose.x, TrackNode[devId].Pose.y,
+		//	TrackNode[devId].Pose.z);
 	}
 	system("pause");
 	return 0;

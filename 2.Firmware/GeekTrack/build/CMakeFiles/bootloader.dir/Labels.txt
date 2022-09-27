@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/CMakeFiles/bootloader
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/CMakeFiles/bootloader.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/CMakeFiles/bootloader-complete.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+E:/Hardware Project/GeekTrack/2.Firmware/GeekTrack/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule

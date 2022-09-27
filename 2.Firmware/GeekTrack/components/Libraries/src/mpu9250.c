@@ -67,7 +67,7 @@ void MPU9250_GetRawData(int16_t *ax,int16_t *ay,int16_t *az,
 	*ay = (buf[2] << 8) + buf[3];
 	*az = (buf[4] << 8) + buf[5];
 	// 温度
-	*temp =(buf[6] <<8) + buf[7];
+	*temp =(buf[6] << 8) + buf[7];
 	// 陀螺仪
 	*gx = (buf[8]  << 8) + buf[9];
 	*gy = (buf[10] << 8) + buf[11];
@@ -87,14 +87,14 @@ void MPU9250_GetData(float* ax, float* ay, float* az,
 	                   &mpu9250.gy,&mpu9250.gz,&mpu9250.temp);
 
 	/*对加速度计和陀螺仪数据进行缩放以及进行坐标轴变换           */
-	*gx = (float) (M_PI*(mpu9250.gx) * GYRO_SCALE / 180.00f);
-	*gy = (float) (M_PI*(mpu9250.gy) * GYRO_SCALE / 180.00f);
-	*gz = (float) (M_PI*(mpu9250.gz) * GYRO_SCALE / 180.00f);
+	*gx = - (float) (M_PI*(mpu9250.gy) * GYRO_SCALE / 180.00f);
+	*gy =   (float) (M_PI*(mpu9250.gx) * GYRO_SCALE / 180.00f);
+	*gz =   (float) (M_PI*(mpu9250.gz) * GYRO_SCALE / 180.00f);
 	
     /* 获取原始的加速度计的数值并按照单位进行缩放*/	
-	*ax = (float) (mpu9250.ax * ACC_SCALE); 
-	*ay = (float) (mpu9250.ay * ACC_SCALE); 
-	*az = (float) (mpu9250.az * ACC_SCALE); 
+	*ax = - (float) (mpu9250.ay * ACC_SCALE); 
+	*ay =   (float) (mpu9250.ax * ACC_SCALE); 
+	*az =   (float) (mpu9250.az * ACC_SCALE); 
 
 	*temp = 20.0f;
 

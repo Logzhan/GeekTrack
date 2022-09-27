@@ -31,7 +31,7 @@ namespace TestGeekTrack
             while (true) {
                 GeekEulerAngles angles = GetEulerAngles(0);
                 GeekQuaternion quat = GetQuaternion(0);
-                Thread.Sleep(100);
+                Thread.Sleep(30);
                 //Debug.Log("<color=#9400D3>" + + "</color>");
                 Console.WriteLine(quat.w + "," + quat.x + "," + quat.y + "," + quat.z);
             }
